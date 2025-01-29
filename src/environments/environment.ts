@@ -1,7 +1,7 @@
 export const environment = {
     LevelCloud:{
-        url: "http://localhost:8080/api",
-        musicUrl: "http://localhost:8084/api",
+        url: "http://luishidalgoa.ddns-ip.net:8080/api",
+        musicUrl: "http://luishidalgoa.ddns-ip.net:8084/api",
     },
     youtube:{
         url:"https://www.googleapis.com/youtube/v3/",
