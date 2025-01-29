@@ -1,0 +1,9 @@
+<div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+    <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full transition-all"
+        [style.width]="(item.progress?.progress || 0) + '%'">
+        {{(item.progress?.progress | number:'1.2-2') || 0}}%
+    </div>
+</div>
+<span class="text-xs text-gray-600 dark:text-gray-400">
+    {{item.progress?.index}}/{{item.progress?.total}}
+</span>

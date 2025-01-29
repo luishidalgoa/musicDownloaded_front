@@ -1,0 +1,6 @@
+<div class="max-w-2xl w-full grid gap-4">
+    <app-download-input (downloadDTO)="this.progressHandler($event)" class="grid gap-4"/>
+    @if (item) {
+        <app-progress-bar [item]="item"/>
+    }
+</div>
