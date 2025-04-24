@@ -127,11 +127,9 @@ export class DownloadSessionService {
         .get(url, { headers, observe: 'response', responseType: 'blob' })
         .subscribe({
           next: response => {
-            console.log('Descarga completada:', response);
 
             let fileName = 'downloaded_file'; // Nombre predeterminado
             const contentDispositionHeader = response.headers.get('content-disposition');
-
             if (contentDispositionHeader) {
               // Manejar Map con Array
               const contentDisposition = Array.isArray(contentDispositionHeader)

@@ -16,8 +16,6 @@ export class YoutubeService {
    */
   getVideoDetails(youtubeUrl: string): Observable<YoutubeDTO> {
     const id = this.extractId(youtubeUrl);
-    console.log('ID extraído:', id);
-
     if (!id) {
       throw new Error('El enlace proporcionado no es válido.');
     }
@@ -26,7 +24,6 @@ export class YoutubeService {
       .set('part', 'snippet')
       .set('id', id) // Siempre se utiliza 'id'
       .set('key', environment.youtube.key);
-    console.log(youtubeUrl.includes('list')?'playlists':'videos',youtubeUrl);
     const endpoint = `${environment.youtube.url}${youtubeUrl.includes('list')?'playlists':'videos'}`; // En YouTube API, 'videos' cubre ambos casos
 
     return this.http.get<YoutubeDTO>(endpoint, { params });

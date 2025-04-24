@@ -14,6 +14,7 @@ import { DownloadType } from '../../../music/download/models/enum/download-type'
 export class DownloadInputComponent {
   miniature:YoutubeDTO | null = null;
   toggle: boolean = false;
+  imageUrl: string = '';
 
   @ViewChild('Iurl') input!: ElementRef<HTMLInputElement>;
   @ViewChild('Toggle') InputToggle!: ElementRef<HTMLInputElement>;
@@ -26,8 +27,8 @@ export class DownloadInputComponent {
   
   search(){
     this.youtubeS.getVideoDetails(this.input.nativeElement.value).subscribe((data:YoutubeDTO)=>{
-      console.log(data);
       this.miniature = data;
+      this.imageUrl = data.items[0].snippet.thumbnails.standard ? this.miniature.items[0].snippet.thumbnails.standard.url : this.miniature.items[0].snippet.thumbnails.default.url ;
     });
   }
 
